@@ -72,6 +72,10 @@ def makeFMData( from_dict, locked = False):
 				elif date and time:
 					setattr(self, key, DateTime(int(ye), int(mo), int(da), int(ho), int(mi), int(se)))
 				elif date:
+					fixed_date = DateTime.strptime(str(value), "%m/%d/%Y").date()
+					ye = fixed_date.year
+					mo = fixed_Date.month
+					da = fixed_Date.day
 					setattr(self, key, Date(int(ye), int(mo), int(da)))
 				elif time:
 					setattr(self, key, Time(int(ho), int(mi), int(se)))
